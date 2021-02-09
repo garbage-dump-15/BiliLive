@@ -1,0 +1,9 @@
+﻿<Application x:Class="TrayLive.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TrayLive"
+             Startup="InitApplication">
+    <Application.Resources>
+        <ResourceDictionary Source="TaskBar.xaml" />
+    </Application.Resources>
+</Application>

@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <div id="live-number">
+        
+    </div>
+    <script>
+        var reloadLive = function () {
+            var live = document.getElementById("live-number");
+            var req = "/refresh?";
+            var sess = "&sess=do_not_change_this";
+            <!-- sess is operated by the datafeed backend, don't touch it unless you know what you're doing -->
+            <!-- you should consider change this using `type` request param -->
+            <!-- possible values are: online, level, score, upgrade_score -->
+            var uid = "uid=" + 297;
+            <!-- this `uid` number here is subject to any change, though -->
+            axios(req + uid + sess).then(function(res) { 
+                live.innerText = res.data.online;
+            });
+        }
+        window.onload = function () {
+            reloadLive();
+            setInterval(reloadLive, 3000);
+        }
+    </script>
+</body>
+</html>
